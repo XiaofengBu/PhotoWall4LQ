@@ -2,9 +2,12 @@ package com.hhu.action;
 
 import com.hhu.model.User;
 import com.hhu.service.UserServiceI;
+import com.opensymphony.xwork2.ActionSupport;
+import com.sun.net.httpserver.Authenticator;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
+import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -14,7 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 @ParentPackage("basePackage")
 @Action(value="strust2Test")
 @Namespace("/")
-public class TestAction {
+public class TestAction extends ActionSupport{
 
     @Autowired
     private UserServiceI userService;
@@ -22,9 +25,10 @@ public class TestAction {
     /**
      * http://localhost:8080/strust2Test!test.action
      */
-    public void test(){
+    public String test(){
         System.out.println("进入action!");
         userService.test();
+        return SUCCESS;
     }
     /**
      * http://localhost:8080/strust2Test!saveUser.action
