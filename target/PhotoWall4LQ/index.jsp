@@ -28,7 +28,7 @@
         <form action="/login!login.action" method="post">
             <div class="form-group has-feedback">
                 <input class="form-control" placeholder="用户名" type="index" name="username">
-                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
                 <input class="form-control" placeholder="密码" type="password" name="password">
@@ -38,7 +38,7 @@
                 <div class="col-xs-8">
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" name="checkbox" fieldValue="wmj2003">  记住我
+                            <input type="checkbox" name="checkbox" value="remember">  记住我
                         </label>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
             </div>
         </form>
 
-        <a href="register.html" class="text-center">注册新的账户</a>
+        <a href="/register.jsp" class="text-center">注册新的账户</a>
 
     </div>
     <!-- /.login-box-body -->
