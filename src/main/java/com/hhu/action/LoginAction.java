@@ -5,7 +5,6 @@ import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
-import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 
 /**
  * Created by buxiaofeng on 17/2/28.

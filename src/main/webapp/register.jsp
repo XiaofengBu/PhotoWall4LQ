@@ -26,7 +26,7 @@
     <div class="register-box-body">
         <p class="login-box-msg">注册照片墙</p>
 
-        <form action="#" method="post" onsubmit="ioCheck()">
+        <form action="register!register.action" method="post" onsubmit="ioCheck()">
             <div class="form-group has-feedback">
                 <input class="form-control" placeholder="用户名" type="text" name="username">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
