@@ -56,11 +56,7 @@ public class RegisterAction extends ActionSupport{
      */
     public String register(){
         try{
-            User user=new User();
-            user.setUsername(this.username);
-            user.setChn_Name(this.chn_Name);
-            user.setPassword(DigestUtils.md5Hex(this.password));
-            userService.save(user);
+            userService.register(this.username,this.chn_Name,this.password);
             return SUCCESS;
         }catch(Exception e){
             e.printStackTrace();

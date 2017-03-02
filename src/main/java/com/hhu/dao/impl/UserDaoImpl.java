@@ -22,4 +22,7 @@ public class UserDaoImpl implements UserDaoI{
     public Serializable save(User user){
         return sessionFactory.getCurrentSession().save(user);
     }
+    public User findByUsername(String username){
+        return (User)sessionFactory.getCurrentSession().get(User.class,username);
+    }
 }

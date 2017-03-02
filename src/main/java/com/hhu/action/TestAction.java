@@ -23,14 +23,6 @@ public class TestAction extends ActionSupport{
     private UserServiceI userService;
 
     /**
-     * http://localhost:8080/strust2Test!test.action
-     */
-    public String test(){
-        System.out.println("进入action!");
-        userService.test();
-        return SUCCESS;
-    }
-    /**
      * http://localhost:8080/strust2Test!saveUser.action
      */
     public void saveUser(){

@@ -11,6 +11,6 @@
     <title>错误</title>
 </head>
 <body>
-<a style="text-align: center" href="/register.jsp">注册出现错误!请尝试跟换用户名!</a>
+<a style="text-align: center" href="/register.jsp">注册出现错误!请尝试更换用户名!</a>
 </body>
 </html>

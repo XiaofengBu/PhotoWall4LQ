@@ -11,4 +11,5 @@ import java.io.Serializable;
 public interface UserDaoI {
 
     Serializable save(User user);
+    User findByUsername(String username);
 }
