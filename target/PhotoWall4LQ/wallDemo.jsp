@@ -9,8 +9,20 @@
 <html>
 <head>
     <title>图片墙样例</title>
+    <style type="text/css">
+        *{padding: 0;margin: 0}
+        body{
+            background-color: #fff;
+            color: #555;
+            font-family:'Avenir Next','Lantinghei SC';
+            font-size:14px;
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
 </head>
 <body>
 
+
+    <script src="content/js/jquery-2.2.3.min.js"></script>
 </body>
 </html>
