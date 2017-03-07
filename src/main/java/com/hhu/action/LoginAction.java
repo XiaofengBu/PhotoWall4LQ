@@ -6,7 +6,10 @@ import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
+import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.Map;
 
 /**
  * Created by buxiaofeng on 17/2/28.
@@ -18,9 +21,11 @@ import org.springframework.beans.factory.annotation.Autowired;
         @Result(name = "error",location = "/loginError.jsp")
 })
 @Namespace("/")
-public class LoginAction extends ActionSupport{
+public class LoginAction extends ActionSupport implements SessionAware{
     @Autowired
     private UserServiceI userService;
+
+    private Map session;
 
     private String username;
     private String password;
@@ -52,6 +57,10 @@ public class LoginAction extends ActionSupport{
         this.checkbox = checkbox;
     }
 
+    public void setSession(Map session){
+        this.session=session;
+    }
+
     /**
      * http://localhost:8080/login!login.action
      * @return
@@ -59,6 +68,7 @@ public class LoginAction extends ActionSupport{
     public String login(){
         try {
             if (userService.isLogin(this.username, this.password)) {
+                session.put("username",this.username);
                 return SUCCESS;
             }
         }catch (Exception e){
