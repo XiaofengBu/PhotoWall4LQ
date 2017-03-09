@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -43,11 +44,14 @@ public class PictureServiceImpl implements PictureServiceI {
                 picture.setUsername(username);
                 picture.setPicture_desc(picture_desc);
                 picture.setPicture_title(picture_title);
-                picture.setPicture_path(root+"/"+picture_title);
+                picture.setPicture_path("/resource/"+username+"/"+picture_title);
             }catch(IOException e){
                 e.printStackTrace();
             }
         }
         return pictureDao.save(picture);
+    }
+    public List<Picture> getPictureList(String username){
+        return pictureDao.queryPictureListByUserName(username);
     }
 }

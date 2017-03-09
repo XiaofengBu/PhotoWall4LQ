@@ -22,7 +22,7 @@ import java.util.Map;
         @Result(name = "success",location = "/wallDemo.jsp")
 })
 @Namespace("/")
-public class FileUpload extends ActionSupport implements SessionAware {
+public class FileUploadAction extends ActionSupport implements SessionAware {
     @Autowired
     private PictureServiceI pictureService;
 

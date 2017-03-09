@@ -27,7 +27,7 @@
 <body>
     <h1 style="text-align:center;">上传图片</h1>
     <div id="demo" class="demo"></div>
-    <form action="/login!login.action" method="post">
+    <form action="/pictureShow!showPictureList.action" method="post">
     <div class="right" style="text-align: center"><input type="submit" class="see" value="查看相册"></div>
     </form>
     <script src="/content/js/jquery-2.2.3.min.js"></script>

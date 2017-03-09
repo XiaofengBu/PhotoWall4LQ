@@ -27,7 +27,9 @@
 <body>
     <h1 style="text-align:center;">上传图片</h1>
     <div id="demo" class="demo"></div>
-    <div class="right" style="text-align: center"><input type="button" class="see" value="查看相册"></div>
+    <form action="/pictureShow!showPictureList.action" method="post">
+    <div class="right" style="text-align: center"><input type="submit" class="see" value="查看相册"></div>
+    </form>
     <script src="/content/js/jquery-2.2.3.min.js"></script>
     <script src="/content/libs/fileUpload/core/zyFile.js"></script>
     <script src="/content/libs/fileUpload/control/js/zyUpload.js"></script>
