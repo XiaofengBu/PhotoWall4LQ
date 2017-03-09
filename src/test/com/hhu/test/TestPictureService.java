@@ -20,6 +20,6 @@ public class TestPictureService {
         picture.setPicture_desc("描述");
         picture.setPicture_path("路径");
         picture.setUsername("test");
-        pictureService.save(picture);
+        //pictureService.save(picture);
     }
 }
