@@ -18,8 +18,8 @@ import java.util.Map;
  */
 @ParentPackage("basePackage")
 @Action(value="upload", results ={
-        @Result(name = "success",location = "/wallDemo.jsp"),
-        @Result(name = "error",location = "/content/html/photoUpload.jsp")
+        @Result(name = "error",location = "/login.jsp"),
+        @Result(name = "success",location = "/wallDemo.jsp")
 })
 @Namespace("/")
 public class FileUpload extends ActionSupport implements SessionAware {
@@ -57,8 +57,17 @@ public class FileUpload extends ActionSupport implements SessionAware {
     /**
      * http://localhost:8080/upload!upload.action
      */
-    public void upload(){
+    public String upload(){
         String username=(String)session.get("username");
-        pictureService.save(this.file,username,this.filename,"描述");
+        if(username==null){
+            return ERROR;
+        }
+        try {
+            pictureService.save(this.file, username, this.filename, "描述");
+        }catch(Exception e){
+            e.printStackTrace();
+            return ERROR;
+        }
+        return SUCCESS;
     }
 }
