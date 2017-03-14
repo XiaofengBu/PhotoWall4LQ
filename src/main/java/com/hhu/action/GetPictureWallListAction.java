@@ -3,33 +3,27 @@ package com.hhu.action;
 import com.hhu.model.Picture;
 import com.hhu.service.PictureServiceI;
 import com.opensymphony.xwork2.ActionSupport;
-import org.apache.struts2.ServletActionContext;
-import org.apache.struts2.convention.annotation.Action;
-import org.apache.struts2.convention.annotation.Namespace;
-import org.apache.struts2.convention.annotation.ParentPackage;
-import org.apache.struts2.convention.annotation.Result;
+import org.apache.struts2.convention.annotation.*;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 /**
- * Created by buxiaofeng on 17/3/9.
+ * Created by buxiaofeng on 17/3/14.
  */
-
 @ParentPackage("basePackage")
-@Action(value="pictureShow", results ={
-        @Result(name = "success",location = "/content/html/photoShow.jsp"),
-        @Result(name = "error",location = "/login.jsp")
-})
+@Results({
+        @Result(name = ActionSupport.SUCCESS, type = "json"),
+        @Result(name = ActionSupport.ERROR, type = "json") })
 @Namespace("/")
-public class PictureShowAction extends ActionSupport implements SessionAware{
+public class GetPictureWallListAction extends ActionSupport implements SessionAware{
     @Autowired
     private PictureServiceI pictureService;
 
     private Map session;
+    private List<Picture> pictureList;
 
     public Map getSession() {
         return session;
@@ -39,21 +33,28 @@ public class PictureShowAction extends ActionSupport implements SessionAware{
         this.session = session;
     }
 
+    public List<Picture> getPictureList() {
+        return pictureList;
+    }
+
+    public void setPictureList(List<Picture> pictureList) {
+        this.pictureList = pictureList;
+    }
+
     /**
-     * http://localhost:8080/pictureShow!showPictureList.action
+     * http://localhost:8080/getWallList.action
      * @return
      */
-
-    public String showPictureList(){
+    @Action(value="getWallList", results={@Result(type="json", params={"pictureList","pictureList"})})
+    public String getWallList(){
         String username=(String)session.get("username");
         if(username==null){
             return ERROR;
         }
-        List<Picture> pictureList=new ArrayList<Picture>();
         if(username!=null){
             pictureList=pictureService.getPictureList(username);
         }
-        ServletActionContext.getRequest().setAttribute("pictureList", pictureList);
         return SUCCESS;
     }
+
 }

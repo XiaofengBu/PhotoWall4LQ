@@ -12,4 +12,5 @@ import java.util.List;
 public interface PictureServiceI {
     Serializable save(File file, String username, String picture_title, String picture_desc);
     List<Picture> getPictureList(String username);
+
 }

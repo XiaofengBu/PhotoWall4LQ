@@ -71,9 +71,9 @@
             float: left;
             padding: 0 10px 10px 0;
         }
-        .gallery div:nth-child(6n) {
-            padding-right: 0;
-        }
+        /*.gallery div:nth-child(6n) {*/
+            /*padding-right: 0;*/
+        /*}*/
         .gallery a,
         .gallery img {
             float: left;
@@ -93,7 +93,6 @@
         </s:iterator>
     </div>
 </div>
-
     <script src="/content/js/jquery-2.2.3.min.js"></script>
     <script src="/content/libs/zoom/js/zoom.js"></script>
 </body>

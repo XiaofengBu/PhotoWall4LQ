@@ -37,5 +37,8 @@ public class UserserviceImpl implements UserServiceI {
             return false;
         }
     }
-
+    public String getCHN_Name(String username){
+        User user=userDao.findByUsername(username);
+        return user.getChn_Name();
+    }
 }

@@ -2,6 +2,7 @@ package com.hhu.action;
 
 import com.hhu.service.UserServiceI;
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
@@ -17,7 +18,7 @@ import java.util.Map;
 
 @ParentPackage("basePackage")
 @Action(value="login", results ={
-        @Result(name = "success",location = "/content/html/photoUpload.jsp"),
+        @Result(name = "success",location = "/content/html/photoWall.jsp"),
         @Result(name = "error",location = "/loginError.jsp")
 })
 @Namespace("/")
@@ -69,6 +70,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
         try {
             if (userService.isLogin(this.username, this.password)) {
                 session.put("username",this.username);
+                ServletActionContext.getRequest().setAttribute("CHN_NAME", userService.getCHN_Name(username));
                 return SUCCESS;
             }
         }catch (Exception e){

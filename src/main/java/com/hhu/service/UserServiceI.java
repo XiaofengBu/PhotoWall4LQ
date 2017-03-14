@@ -12,4 +12,5 @@ public interface UserServiceI {
     Serializable save(User user);
     void register(String username,String chn_Name,String password);
     boolean isLogin(String username,String password);
+    String getCHN_Name(String username);
 }
