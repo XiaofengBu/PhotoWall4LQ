@@ -171,7 +171,7 @@
     <div class="photo photo_front" onclick="turn(this)" id="photo_{{index}}">
         <div class="photo-wrap">
             <div class="side side-front">
-                <p class="image"><img src="content/images/demo/{{img}}" /></p>
+                <p class="image"><img src="{{img}}" /></p>
                 <p class="caption">{{caption}}</p>
             </div>
             <div class="side side-back">
@@ -212,9 +212,34 @@
         return number;
     }
 
-    var mydata = {};
+    var mydata = [];
+    getPictureList();
     function getPictureList() {
-        
+        $.ajax({
+            url:"/getWallList.action",           //该路径在route中定义
+            data:{},
+            async : true,
+            type:"POST",
+            dataType :"json",
+            contentType :"text/plain,charset=utf-8",
+            success:function(msg){
+                var aPicture= {
+                    caption: "",
+                    desc: "",
+                    img: ""
+                }
+                for(var i=0;i<msg.pictureList.length();i++){
+                    aPicture.caption=msg.pictureList[i].picture_title;
+                    aPicture.desc=msg.pictureList[i].picture_desc;
+                    aPicture.img=msg.pictureList[i].picture_path;
+                    mydata.push(aPicture);
+                }
+                addPhotos();
+            },
+            error:function(msg){
+                alert("初始化失败");
+            }
+        });
     }
     function addPhotos(){
         var template = g('#wrap').innerHTML;
@@ -235,7 +260,6 @@
         //  rsort(1);
         rsort(random([-1,data.length-1])); //生成0-7
     }
-    addPhotos();
 
     function range(){
         var range={ left:{ x:[],y:[] },right:{ x:[] ,y:[] }};

@@ -13,7 +13,7 @@ import java.util.Map;
 /**
  * Created by buxiaofeng on 17/3/14.
  */
-@ParentPackage("basePackage")
+@ParentPackage("json-default")
 @Results({
         @Result(name = ActionSupport.SUCCESS, type = "json"),
         @Result(name = ActionSupport.ERROR, type = "json") })
