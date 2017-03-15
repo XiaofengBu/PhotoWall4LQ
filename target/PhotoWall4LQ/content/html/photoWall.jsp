@@ -145,7 +145,7 @@
                     <nav class="pull">
                         <ul class="top-nav">
                             <li><a href="pictureShow!showPictureList.action">你的相册 <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
-                            <li><a href="#features">赛事简介 <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
+                            <li><a href="showUpload!showUpload.action">上传照片 <span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
                         </ul>
                     </nav>
                 </div>
@@ -172,7 +172,6 @@
         <div class="photo-wrap">
             <div class="side side-front">
                 <p class="image"><img src="{{img}}" /></p>
-                <p class="caption">{{caption}}</p>
             </div>
             <div class="side side-back">
                 <p class="desc">{{desc}}</p>
@@ -223,12 +222,13 @@
             dataType :"json",
             contentType :"text/plain,charset=utf-8",
             success:function(msg){
-                var aPicture= {
-                    caption: "",
-                    desc: "",
-                    img: ""
-                }
-                for(var i=0;i<msg.pictureList.length();i++){
+
+                for(var i=0;i<msg.pictureList.length;i++){
+                    var aPicture= {
+                        caption: "",
+                        desc: "",
+                        img: ""
+                    }
                     aPicture.caption=msg.pictureList[i].picture_title;
                     aPicture.desc=msg.pictureList[i].picture_desc;
                     aPicture.img=msg.pictureList[i].picture_path;
@@ -250,7 +250,6 @@
             var _html = template
                     .replace('{{index}}',s)
                     .replace('{{img}}',mydata[s].img)
-                    .replace('{{caption}}',mydata[s].caption)
                     .replace('{{desc}}',mydata[s].desc);
             html.push(_html);
             nav.push('<span id="nav_'+s+'" onclick="turn(g(\'#photo_'+s+'\'))" class="i">&nbsp;</span>');

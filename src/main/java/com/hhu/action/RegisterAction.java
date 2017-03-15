@@ -15,7 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 @ParentPackage("basePackage")
 @Action(value="register", results ={
-        @Result(name = "success" , location = "/login.jsp"),
+        @Result(name = "success" , location = "/index.jsp"),
         @Result(name = "error" , location = "/registerError.jsp")
 })
 @Namespace("/")

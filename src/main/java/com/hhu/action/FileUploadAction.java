@@ -18,7 +18,7 @@ import java.util.Map;
  */
 @ParentPackage("basePackage")
 @Action(value="upload", results ={
-        @Result(name = "error",location = "/login.jsp"),
+        @Result(name = "error",location = "/index.jsp"),
         @Result(name = "success",location = "/wallDemo.jsp")
 })
 @Namespace("/")

@@ -22,7 +22,7 @@ import java.util.Map;
 @ParentPackage("basePackage")
 @Action(value="pictureShow", results ={
         @Result(name = "success",location = "/content/html/photoShow.jsp"),
-        @Result(name = "error",location = "/login.jsp")
+        @Result(name = "error",location = "/index.jsp")
 })
 @Namespace("/")
 public class PictureShowAction extends ActionSupport implements SessionAware{

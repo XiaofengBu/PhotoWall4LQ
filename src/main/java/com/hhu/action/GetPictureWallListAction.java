@@ -7,6 +7,7 @@ import org.apache.struts2.convention.annotation.*;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -24,6 +25,7 @@ public class GetPictureWallListAction extends ActionSupport implements SessionAw
 
     private Map session;
     private List<Picture> pictureList;
+    private static final int listNumber=10;
 
     public Map getSession() {
         return session;
@@ -52,7 +54,15 @@ public class GetPictureWallListAction extends ActionSupport implements SessionAw
             return ERROR;
         }
         if(username!=null){
-            pictureList=pictureService.getPictureList(username);
+            List<Picture> allPicture=pictureService.getPictureList(username);
+            pictureList=new ArrayList<Picture>();
+            if (allPicture.size()>10) {
+                for (int i = 1; i <= listNumber; i++) {
+                    pictureList.add(allPicture.get(allPicture.size()-i));
+                }
+            }else{
+                pictureList=allPicture;
+            }
         }
         return SUCCESS;
     }
