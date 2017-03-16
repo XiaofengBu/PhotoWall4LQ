@@ -26,5 +26,20 @@
     <!-- 对于WebLogic,Orion,OC4J此属性应该设置成true -->
     <constant name="struts.dispatcher.parametersWorkaround" value="false" />
     <package name="basePackage" extends="struts-default">
+        <interceptors>
+            <interceptor-stack name="defStack">
+                <interceptor-ref name="sessionNull">
+                    <param name="excludeMethods">login</param>
+                </interceptor-ref>
+            </interceptor-stack>
+            <interceptor name="sessionNull" class="com.hhu.action.SessionNullInterceptor"></interceptor>
+        </interceptors>
+        <default-interceptor-ref name="defStack">
+        </default-interceptor-ref>
+        <global-results>
+            <result name="sessionNull">
+                /index.jsp
+            </result>
+        </global-results>
     </package>
 </struts>

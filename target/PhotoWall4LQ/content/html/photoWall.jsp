@@ -152,7 +152,7 @@
             </div>
         </div>
     </nav>
-    <section class="hero" id="hero">
+    <section class="hero" id="hero" >
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-right navicon">
